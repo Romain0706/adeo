@@ -7,4 +7,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["node", "app.js"]
+ENTRYPOINT ["node", "app.js"]

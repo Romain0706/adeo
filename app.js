@@ -1,5 +1,23 @@
-const { getData } = require('./src/infrastructure/dataRepository');
+const { filterAnimals } = require('./src/application/filterAnimals');
 
-const data = getData();
+const args = process.argv.slice(2);
 
-console.dir(data, { depth: null, colors: true });
+function runCLI() {
+    if (args.length === 0) {
+        console.error('Usage: node app.js --filter=pattern | --count');
+        process.exit(1);
+    }
+
+    const arg = args[0];
+
+    if (arg.startsWith('--filter=')) {
+        const pattern = arg.split('=')[1];
+        const result = filterAnimals(pattern);
+        console.log(JSON.stringify(result, null, 2));
+    } else {
+        console.error(`Unknown argument: ${arg}`);
+        process.exit(1);
+    }
+}
+
+runCLI();
