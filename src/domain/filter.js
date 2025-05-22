@@ -4,7 +4,7 @@ const filter = (data, pattern) => {
             const people = country.people
                 .map((person) => {
                     const animals = person.animals.filter((animal) =>
-                        animal.name.includes(pattern),
+                        animal.name.toLowerCase().includes(pattern.toLowerCase()),
                     );
                     return animals.length ? { ...person, animals } : null;
                 })

@@ -1,10 +1,8 @@
 const { filterAnimals } = require('./src/application/filterAnimals');
 const { countNames } = require('./src/application/countNames');
 
-const args = process.argv.slice(2);
-
-function runCLI() {
-    if (args.length === 0) {
+const runCLI = (args = process.argv.slice(2)) => {
+    if (!args || args.length === 0) {
         console.error('Usage: node app.js --filter=pattern | --count');
         process.exit(1);
     }
@@ -24,4 +22,8 @@ function runCLI() {
     }
 }
 
-runCLI();
+if (require.main === module) {
+    runCLI();
+}
+
+module.exports = { runCLI };

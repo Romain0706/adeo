@@ -3,3 +3,10 @@ services:
     build: .
     volumes:
       - .:/app
+    entrypoint: ["node", "app.js"]
+  
+  test:
+    build: .
+    volumes:
+      - .:/app
+    command: ["npm", "test"]

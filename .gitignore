@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime
+dist/
+build/
+coverage/
+
+# Environment variables
+.env
+.env.local
+
+# Jest cache
+jest-cache/
+jest-output.json
+
+# Docker files
+*.local
+docker-compose.override.yml
+
+# Editor/OS files
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
