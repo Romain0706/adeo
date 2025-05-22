@@ -32,6 +32,11 @@ node app.js --filter=ry
 node app.js --count
 ```
 
+🔍🔢 Or combine both commands to filter and then count
+```bash
+node app.js --filter=ry --count
+```
+
 ### 4. Run tests
 ```bash
 npm test
@@ -55,6 +60,11 @@ docker-compose run --rm app --filter=ry
 🔢 Count mode
 ```bash
 docker-compose run --rm app --count
+```
+
+🔍🔢 Filter and count
+```bash
+docker-compose run --rm app --filter=ry --count
 ```
 
 ### 3. Run tests
