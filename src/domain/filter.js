@@ -1,4 +1,4 @@
-function filter(data, pattern) {
+const filter = (data, pattern) => {
     return data
         .map((country) => {
             const people = country.people

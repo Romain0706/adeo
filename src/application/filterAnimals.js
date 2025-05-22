@@ -3,7 +3,6 @@ const { getData } = require('../infrastructure/dataRepository');
 
 const filterAnimals = (pattern) => {
     const data = getData();
-    
     return filter(data, pattern);
 }
 
