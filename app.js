@@ -4,12 +4,21 @@ const { countFilteredNames } = require('./src/application/countFilteredNames');
 
 const runCLI = (args = process.argv.slice(2)) => {
     if (!args || args.length === 0) {
-        console.error('Usage: node app.js --filter=pattern | --count');
+        console.error('Usage: node app.js --filter=pattern [--count]');
         process.exit(1);
     }
 
-    const filterArg = args.find(arg => arg.startsWith('--filter='));
-    const countArg = args.includes('--count');
+    const filterArgs = args.filter(arg => arg.startsWith('--filter='));
+    const countArgs = args.filter(arg => arg === '--count');
+
+    if (filterArgs.length > 1 || countArgs.length > 1 || args.length > (filterArgs.length + countArgs.length)) {
+        console.warn('Warning: Too many or invalid arguments provided.');
+        console.error('Usage: node app.js --filter=pattern [--count]');
+        process.exit(1);
+    }
+
+    const filterArg = filterArgs[0];
+    const countArg = countArgs.length === 1;
 
     if (filterArg && countArg) {
         const pattern = filterArg.split('=')[1];
